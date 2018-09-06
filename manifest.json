@@ -1,0 +1,28 @@
+{
+
+    "description": "A WebExtension for Tracking your own Digital Trail.",
+    "manifest_version": 2,
+    "name": "Trails",
+    "version": "1.0",
+
+    "permissions": [
+      "webRequest",
+      "webNavigation",
+      "storage",
+      "<all_urls>"
+    ],
+    "page_action": {
+      "default_icon": {
+        "48": "icons/trails-48.png",
+        "128": "icons/trails-128.png"  
+      }
+    },
+    "icons": {
+      "48": "icons/trails-48.png",
+      "128": "icons/trails-128.png"  
+    },
+    "background": {
+      "scripts": ["background.js"]
+    }
+  
+  }
