@@ -15,8 +15,7 @@ To add to Chrome:
 
 To add to Firefox: 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cer9EUKegG4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
+[![How to Install in Firefox](http://img.youtube.com/vi/cer9EUKegG4/0.jpg)](http://www.youtube.com/watch?v=cer9EUKegG4 "Install in Firefox")
 
 ---------------------------------------------
 
