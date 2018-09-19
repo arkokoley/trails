@@ -9,14 +9,16 @@
       "webRequest",
       "webNavigation",
       "storage",
+      "downloads",
       "<all_urls>"
     ],
-    "page_action": {
+    "browser_action": {
+      "popup" : "index.html",
       "default_icon": {
         "48": "icons/trails-48.png",
         "128": "icons/trails-128.png"  
       }
-    },
+    },  
     "icons": {
       "48": "icons/trails-48.png",
       "128": "icons/trails-128.png"  

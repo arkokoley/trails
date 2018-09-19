@@ -1,6 +1,6 @@
 let all = []
 
-let browserHandle = browser || chrome
+let browserHandle = chrome || browser
 
 browserHandle.webRequest.onBeforeRequest.addListener(
   function(details) {
@@ -24,7 +24,8 @@ function store () {
   let today = String(new Date().toISOString().slice(0, 10))
   console.log(today)
   browserHandle.storage.local.get([today], function(result) {
-    console.log('Value currently is ' + result[today].length);
+    if(result)
+      console.log('Value currently is ' + result.length);
     let nowResults = all
     if(result[today]) {
       nowResults.unshift(...result[today])
@@ -39,3 +40,12 @@ function store () {
 }
 
 setInterval(store, 5 * 60 * 1000)
+
+browserHandle.browserAction.onClicked.addListener(function(tab) { 
+  browserHandle.storage.local.get(null, function(items) {
+    var item = {hello: "world"}
+    var dump =  new Blob([JSON.stringify(items)], {type: "application/json"})
+    var url = URL.createObjectURL(dump)
+    browserHandle.downloads.download({url: url}, console.log)
+  });
+});
