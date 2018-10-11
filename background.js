@@ -4,11 +4,13 @@ let browserHandle = chrome || browser
 
 browserHandle.webRequest.onBeforeRequest.addListener(
   function(details) {
-    details.to = new URL(details.url).hostname
-    let from = details.originUrl || details.initiator
-    details.from = from ? new URL(from).hostname : from
-    details.user = false
-    all.push(details)
+    if(!details.url.startsWith("data:")) {
+      details.to = new URL(details.url).hostname
+      let from = details.originUrl || details.initiator
+      details.from = from ? new URL(from).hostname : from
+      details.user = false
+      all.push(details)
+    }
   },
   {urls: ["<all_urls>"]});
 

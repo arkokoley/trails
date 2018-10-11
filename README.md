@@ -17,6 +17,21 @@ To add to Firefox:
 
 [![How to Install in Firefox](http://img.youtube.com/vi/cer9EUKegG4/0.jpg)](http://www.youtube.com/watch?v=cer9EUKegG4 "Install in Firefox")
 
+
+## Install Kibana
+
+We use Kibana on Docker to analyse the data collected through Trails.
+To install:
+
+1. `docker pull docker.elastic.co/elasticsearch/elasticsearch:6.4.1`
+2. `docker pull docker.elastic.co/kibana/kibana:6.4.1`
+3. `docker network create elk`
+4. `docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"
+   --name elasticsearch --net elk
+   docker.elastic.co/elasticsearch/elasticsearch:6.4.1`
+5. `docker run -d -p 5601:5601 -e "discovery.type=single-node" --name kibana
+   --net elk docker.elastic.co/kibana/kibana:6.4.1`
+
 ---------------------------------------------
 
 
